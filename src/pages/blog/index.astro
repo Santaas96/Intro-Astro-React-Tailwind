@@ -1,0 +1,20 @@
+---
+import Layout from "../../components/Layout.astro";
+import cafe from '../../images/foto.webp'
+
+const posts = await Astro.glob('./posts/*.md')
+---
+
+<Layout pageTitle="Blog de desarrollo" pageDescription="Tutoriales de desarrollo y programacioon">
+
+  <h1>Blog</h1>
+
+  <img width="150" src={cafe} alt=""><br>
+
+  {
+    posts.map(post => {
+      return <a href={post.url}>{post.frontmatter.title}</a><br>
+    })
+  }
+  
+</Layout>
